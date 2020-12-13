@@ -1,5 +1,5 @@
 use crate::Error;
-use anyhow::*;
+use anyhow::Result;
 use std::str::SplitWhitespace;
 
 #[derive(Debug)]

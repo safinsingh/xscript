@@ -1,5 +1,5 @@
 use crate::{parser::Token, Error};
-use anyhow::*;
+use anyhow::Result;
 
 #[derive(Debug)]
 pub(crate) struct Vm<'a> {
@@ -28,9 +28,7 @@ impl<'a> Vm<'a> {
 			.get(self.idx as usize)
 			.ok_or(Error::UndefinedIndex)?
 		{
-			Token::Register(r) => {
-				self.pointer = *r;
-			}
+			Token::Register(r) => self.pointer = *r,
 			Token::Increment => self.op(|r| *r += 1)?,
 			Token::Decrement => self.op(|r| *r -= 1)?,
 			Token::Zero => self.op(|r| *r = 0)?,
@@ -55,7 +53,7 @@ impl<'a> Vm<'a> {
 
 	fn op<F>(&mut self, mut fun: F) -> Result<()>
 	where
-		F: FnMut(&mut u8) -> (),
+		F: FnMut(&mut u8),
 	{
 		match self.pointer {
 			1 => fun(&mut self.registers[0]),

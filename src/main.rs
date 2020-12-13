@@ -2,7 +2,7 @@ mod errors;
 mod parser;
 mod vm;
 
-use anyhow::*;
+use anyhow::Result;
 use errors::Error;
 use parser::Parser;
 use std::{env, fs};
@@ -18,7 +18,5 @@ fn main() -> Result<()> {
 	let tokens = Parser::new(&program).parse()?;
 	let mut registers = [0, 0, 0, 0];
 
-	Vm::new(tokens, &mut registers).run()?;
-
-	Ok(())
+	Vm::new(tokens, &mut registers).run()
 }
