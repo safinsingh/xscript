@@ -1,7 +1,7 @@
  xscript
 =========
  made in
- ~1.5 hrs
+ ~1.5 hr
 
    dir
 =========
@@ -11,9 +11,8 @@
 
    try
 =========
-
 cargo build --release -vv
 cp target/release/xs .
 
-xs -p pp examples/hello_world_pp.xs
-xs -p xsc examples/hello_world_xsc.xs
+./xs -p pp examples/hello_world_pp.xs
+./xs -p xsc examples/hello_world_xsc.xs
