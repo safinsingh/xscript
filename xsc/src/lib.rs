@@ -1,30 +1,19 @@
-use crate::Error;
 use anyhow::Result;
 use std::str::SplitWhitespace;
+use xs_core::{parser::Token, Error};
 
-#[derive(Debug)]
-pub(crate) enum Token {
-	Register(u8),
-	Increment,
-	Decrement,
-	Zero,
-	Loop,
-	Out,
-	Number(u8),
-}
-
-pub(crate) struct Parser<'a> {
+pub struct Parser<'a> {
 	input: SplitWhitespace<'a>,
 }
 
 impl<'a> Parser<'a> {
-	pub(crate) fn new(input: &'a str) -> Parser<'a> {
+	pub fn new(input: &'a str) -> Parser<'a> {
 		Self {
 			input: input.split_whitespace(),
 		}
 	}
 
-	pub(crate) fn parse(&mut self) -> Result<Vec<Token>> {
+	pub fn parse(&mut self) -> Result<Vec<Token>> {
 		let mut tokens = Vec::new();
 
 		while let Some(word) = self.input.next() {

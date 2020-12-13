@@ -1,0 +1,47 @@
+an, uh, intuitive dialect of xscript
+
+   xsc
+=========
+
+
+REGISTERS
+=========
+r1: bruh
+r2: bruuh
+r3: bruuuh
+r4: bruuuuh
+
+   OPS
+=========
+incr: yes
+decr: no
+zero: die
+point to: @<register>
+
+  LOOPS
+=========
+for/range: ok <num> <op>
+
+   I/O
+=========
+print: lol
+
+   EX.
+=========
+
+# unqiue: Helo Wrd\n
+# store: l, o
+# H  e   l   l   o      W  o   r   l   d   \n
+# 72 101 108 108 111 32 87 111 114 108 100 10
+
+@bruh ok 72 yes lol        # H
+@bruuh ok 101 yes lol      # e
+@bruuuh ok 108 yes lol lol # ll
+@bruuuuh ok 111 yes lol    # o
+@bruh ok 40 no lol         #  <- space (72 - 40 = 32)
+@bruuh ok 14 no lol        # W (101 - 14 = 87)
+@bruuuuh lol               # o
+@bruuh ok 27 yes lol       # r (87 + 27 = 114)
+@bruuuh lol                # l
+@bruuuh ok 8 no lol        # d (108 - 8 = 100)
+@bruh ok 22 no lol         # \n (32 - 22 = 10)

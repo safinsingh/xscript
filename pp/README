@@ -1,0 +1,50 @@
+a dialect of xscript composed purely of the letter p (and some symbols)
+
+    p
+=========
+
+REGISTERS
+=========
+r1: p
+r2: pp
+r3: ppp
+r4: pppp
+
+   OPS
+=========
+incr: ppppp
+decr: pppppp
+zero: ppppppp
+point to: <register>
+
+  LOOPS
+=========
+for/range: pppppppp <num> <op>
+
+   I/O
+=========
+print: ppppppppp
+
+ NUMBERS
+=========
+binary: 0101 -> !pPpP
+
+   EX.
+=========
+
+# unqiue: Helo Wrd\n
+# store: l, o
+# H  e   l   l   o      W  o   r   l   d   \n
+# 72 101 108 108 111 32 87 111 114 108 100 10
+
+p pppppppp !pPppPppp ppppp ppppppppp        		# H
+pp pppppppp !pPPppPpP ppppp ppppppppp      			# e
+ppp pppppppp !pPPpPPpp ppppp ppppppppp ppppppppp	# ll
+pppp pppppppp !pPPpPPPP ppppp ppppppppp    			# o
+p pppppppp !ppPpPppp pppppp ppppppppp         		#  <- space (72 - 40 = 32)
+pp pppppppp !ppppPPPp pppppp ppppppppp        		# W (101 - 14 = 87)
+pppp ppppppppp               						# o
+pp pppppppp !pppPPpPP ppppp ppppppppp       		# r (87 + 27 = 114)
+ppp ppppppppp                						# l
+ppp pppppppp !ppppPppp pppppp ppppppppp        		# d (108 - 8 = 100)
+p pppppppp !pppPpPPp pppppp ppppppppp         		# \n (32 - 22 = 10)

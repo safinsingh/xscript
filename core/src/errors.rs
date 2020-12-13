@@ -1,7 +1,7 @@
 use thiserror::Error as ThisError;
 
 #[derive(ThisError, Debug)]
-pub(crate) enum Error {
+pub enum Error {
 	#[error("Unidentified word: `{0}`")]
 	UnidentifiedWord(String),
 
@@ -16,4 +16,7 @@ pub(crate) enum Error {
 
 	#[error("Failed to read file specified in argv[1]")]
 	InputReadFailed,
+
+	#[error("Invalid parser. Run with --help for more options")]
+	InvalidParser,
 }

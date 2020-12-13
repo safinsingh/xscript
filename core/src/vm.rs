@@ -2,7 +2,7 @@ use crate::{parser::Token, Error};
 use anyhow::Result;
 
 #[derive(Debug)]
-pub(crate) struct Vm<'a> {
+pub struct Vm<'a> {
 	tokens: Vec<Token>,
 	idx: u8,
 	registers: &'a mut [u8; 4],
@@ -10,10 +10,7 @@ pub(crate) struct Vm<'a> {
 }
 
 impl<'a> Vm<'a> {
-	pub(crate) fn new(
-		tokens: Vec<Token>,
-		registers: &'a mut [u8; 4],
-	) -> Vm<'a> {
+	pub fn new(tokens: Vec<Token>, registers: &'a mut [u8; 4]) -> Vm<'a> {
 		Self {
 			tokens,
 			idx: 0,
@@ -65,7 +62,7 @@ impl<'a> Vm<'a> {
 		Ok(())
 	}
 
-	pub(crate) fn run(&mut self) -> Result<()> {
+	pub fn run(&mut self) -> Result<()> {
 		while self.tokens.get(self.idx as usize).is_some() {
 			self.exec()?;
 			self.idx += 1;

@@ -1,0 +1,16 @@
+[package]
+name = "xs_cli"
+version = "1.0.0"
+authors = ["safinsingh <safin.singh@gmail.com>"]
+edition = "2018"
+
+[[bin]]
+name = "xs"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0.35"
+clap = "3.0.0-beta.2"
+xs_core = { path = "../core" }
+xs_xsc = { path = "../xsc" }
+xs_pp = { path = "../pp" }
